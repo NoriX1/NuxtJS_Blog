@@ -2,8 +2,10 @@ const app = require('express')();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const passportStrategy = require('./middlewares/passport-strategy');
+
 const authRoutes = require('./routes/auth.routes');
+const postRoutes = require('./routes/post.routes');
+const passportStrategy = require('./middlewares/passport-strategy');
 
 const keys = require('./keys');
 
@@ -29,5 +31,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/auth', authRoutes);
+app.use('/post', postRoutes);
 
 module.exports = app;
