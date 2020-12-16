@@ -14,14 +14,15 @@ export const mutations = {
 export const actions = {
   async login({ commit, dispatch }, formData) {
     try {
-      const token = await new Promise((resolve, reject) => {
-        setTimeout(() => resolve('mock-token'), 2000);
-      });
+      const { token } = await this.$axios.$post(
+        '/api/auth/admin/login',
+        formData
+      );
       // dispatch вызывает именно actions
       dispatch('setToken', token);
     } catch (e) {
       // 3-й параметр -> смотреть мутацию в корне папки (store)
-      commit('setError', e, { root: true });
+      commit('setError', e.request.response, { root: true });
       throw e;
     }
   },

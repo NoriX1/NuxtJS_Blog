@@ -1,3 +1,5 @@
+import serveStatic from 'serve-static';
+
 export default {
   head: {
     title: 'nuxt-blog',
@@ -22,6 +24,14 @@ export default {
   modules: ['@nuxtjs/axios'],
 
   axios: {},
+
+  serverMiddleware: [
+    // Will register redirect-ssl npm package
+    // 'redirect-ssl',
+
+    // Will register file from project api directory to handle /api/* requires
+    { path: '/api', handler: '~/server/index.js' },
+  ],
 
   build: {
     transpile: [/^element-ui/],

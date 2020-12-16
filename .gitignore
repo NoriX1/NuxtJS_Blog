@@ -88,3 +88,7 @@ sw.*
 
 # Vim swap files
 *.swp
+
+#Keys
+keys.dev.js
+keys.prod.js
