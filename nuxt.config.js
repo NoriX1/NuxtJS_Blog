@@ -1,5 +1,3 @@
-import serveStatic from 'serve-static';
-
 export default {
   head: {
     title: 'nuxt-blog',
@@ -15,7 +13,7 @@ export default {
 
   css: ['element-ui/lib/theme-chalk/index.css', '@/theme/index.scss'],
 
-  plugins: ['@/plugins/globals'],
+  plugins: ['@/plugins/globals', '@/plugins/axios'],
 
   components: true,
 
