@@ -5,6 +5,7 @@ const passport = require('passport');
 
 const authRoutes = require('./routes/auth.routes');
 const postRoutes = require('./routes/post.routes');
+const commentRoutes = require('./routes/comment.routes');
 const passportStrategy = require('./middlewares/passport-strategy');
 
 const keys = require('./keys');
@@ -32,5 +33,6 @@ app.use(bodyParser.json());
 
 app.use('/auth', authRoutes);
 app.use('/post', postRoutes);
+app.use('/comment', commentRoutes);
 
 module.exports = app;
