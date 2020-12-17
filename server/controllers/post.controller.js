@@ -27,7 +27,7 @@ module.exports.getAll = async (req, res) => {
 module.exports.getById = async (req, res) => {
   // populate - по айдишникам найти комментарии и вставить в объект post
   await Post.findById(req.params.id)
-    .populate('comments')
+    .populate({ path: 'comments', options: { sort: { date: -1 } } })
     .exec((error, post) => {
       if (error) {
         res.status(500).json(error);

@@ -13,7 +13,7 @@ module.exports.create = async (req, res) => {
     await comment.save();
 
     const post = await Post.findById(postId);
-    post.commets.push(comment._id);
+    post.comments.push(comment._id);
     await post.save();
 
     res.status(201).json(comment);
