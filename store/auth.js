@@ -22,7 +22,15 @@ export const actions = {
       dispatch('setToken', token);
     } catch (e) {
       // 3-й параметр -> смотреть мутацию в корне папки (store)
-      commit('setError', e.request.response, { root: true });
+      commit('setError', e, { root: true });
+      throw e;
+    }
+  },
+  async createUser({ commit }, formData) {
+    try {
+      await this.$axios.$post('/api/auth/admin/create', formData);
+    } catch (e) {
+      commit('setError', e, { root: true });
       throw e;
     }
   },

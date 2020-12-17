@@ -119,6 +119,6 @@ export default {
 
 <style lang="scss" scoped>
 form {
-  width: 600px;
+  max-width: 600px;
 }
 </style>
