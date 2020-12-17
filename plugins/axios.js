@@ -25,6 +25,7 @@ export default function ({ $axios, redirect, store }) {
       }
 
       if (error.response.status === 500) {
+        // eslint-disable-next-line no-console
         console.error('Server 500 error');
       }
     }

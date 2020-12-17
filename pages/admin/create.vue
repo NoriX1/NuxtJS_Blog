@@ -39,7 +39,7 @@
       <div class="el-upload__text">
         Перетащите картинку <em>или нажмите сюда</em>
       </div>
-      <div class="el-upload__tip" slot="tip">файлы с расширением jpg/png</div>
+      <div slot="tip" class="el-upload__tip">файлы с расширением jpg/png</div>
     </el-upload>
     <el-form-item>
       <el-button type="primary" native-type="submit" :loading="loading" round
