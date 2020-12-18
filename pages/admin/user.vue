@@ -91,6 +91,9 @@ export default {
       });
     },
   },
+  head: {
+    title: `Создать пользователя | ${process.env.appName}`,
+  },
 };
 </script>
 

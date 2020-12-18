@@ -95,5 +95,8 @@ export default {
       });
     },
   },
+  head: {
+    title: `Авторизация | ${process.env.appName}`,
+  },
 };
 </script>

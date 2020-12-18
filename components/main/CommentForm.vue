@@ -75,7 +75,6 @@ export default {
               'comment/create',
               formData
             );
-            console.log(newComment);
             this.$message.success('Комментарий добавлен');
             this.$emit('created', newComment);
           } catch (e) {

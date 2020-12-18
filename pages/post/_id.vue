@@ -2,31 +2,33 @@
   <el-row type="flex" justify="center">
     <el-col :xs="24" :sm="18" :md="16" :lg="14">
       <article class="post">
-        <header class="post-header">
-          <div class="post-title">
-            <h1>{{ post.title }}</h1>
-            <nuxt-link to="/">
-              <i class="el-icon-back"></i>
-            </nuxt-link>
-          </div>
-          <div class="post-info">
-            <small>
-              <i class="el-icon-time"></i>
-              {{ new Date(post.date).toLocaleString() }}
-            </small>
-            <small>
-              <i class="el-icon-view"></i>
-              {{ post.views }}
-            </small>
-          </div>
-          <div class="post-image">
-            <img :src="post.imageUrl" alt="post image" />
-          </div>
-        </header>
-        <main class="post-content">
-          <!-- eslint-disable-next-line prettier/prettier -->
-          <vue-markdown>{{ post.text }}</vue-markdown>
-        </main>
+        <div class="post-body">
+          <header class="post-header">
+            <div class="post-title">
+              <h1>{{ post.title }}</h1>
+              <nuxt-link to="/">
+                <i class="el-icon-back"></i>
+              </nuxt-link>
+            </div>
+            <div class="post-info">
+              <small>
+                <i class="el-icon-time"></i>
+                {{ post.date | date }}
+              </small>
+              <small>
+                <i class="el-icon-view"></i>
+                {{ post.views }}
+              </small>
+            </div>
+            <div class="post-image">
+              <img :src="post.imageUrl" alt="post image" />
+            </div>
+          </header>
+          <main class="post-content">
+            <!-- eslint-disable-next-line prettier/prettier -->
+            <vue-markdown>{{ post.text }}</vue-markdown>
+          </main>
+        </div>
         <footer>
           <app-comment-form
             v-if="canAddComment"
@@ -71,12 +73,24 @@ export default {
       this.canAddComment = false;
     },
   },
+  head() {
+    return {
+      title: `${this.post.title} | ${process.env.appName}`,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .post {
   margin: 0 auto;
+}
+
+.post-body {
+  padding: 30px 20px;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  margin-bottom: 2rem;
 }
 
 .post-title,
@@ -98,9 +112,5 @@ export default {
 
 .post-header {
   margin-bottom: 1.5rem;
-}
-
-.post-content {
-  margin-bottom: 2rem;
 }
 </style>

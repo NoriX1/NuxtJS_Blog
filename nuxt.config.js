@@ -31,6 +31,10 @@ export default {
     { path: '/api', handler: '~/server/index.js' },
   ],
 
+  env: {
+    appName: 'SSR Blog',
+  },
+
   build: {
     transpile: [/^element-ui/],
   },
