@@ -1,3 +1,6 @@
+Тестовое приложение на Nuxt.js
+[Смотреть здесь](https://blog-nuxt-js.herokuapp.com/)
+Также есть [админка](https://blog-nuxt-js.herokuapp.com/admin), но нужен пользователь :)
 # nuxt-blog
 
 ## Build Setup

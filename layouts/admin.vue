@@ -1,7 +1,7 @@
 <template>
   <div class="admin-layout-wrap">
     <el-container :style="{ height: '100%' }">
-      <el-aside width="250px">
+      <el-aside>
         <app-aside />
       </el-aside>
       <el-main>
@@ -32,5 +32,8 @@ export default {
 .admin-layout-wrap {
   width: 100%;
   height: 100vh;
+}
+.el-aside {
+  width: auto !important;
 }
 </style>
