@@ -21,7 +21,9 @@ export default {
 
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
 
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+  },
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
